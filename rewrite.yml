@@ -1,0 +1,26 @@
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: com.kmccarp.Recipe
+displayName: Update Spring Boot/Cloud versions
+description: Update Spring Boot/Cloud versions
+recipeList:
+#  - org.openrewrite.gradle.UpdateGradleWrapper:
+#      version: 6.9.2
+  - org.openrewrite.gradle.ChangeDependencyVersion:
+      dependencyPattern: org.springframework.boot:*
+      newVersion: 2.5.5
+  - org.openrewrite.gradle.ChangeDependencyVersion:
+      dependencyPattern: org.springframework.cloud:spring-cloud-starter-sleuth
+      newVersion: 3.0.4
+  - org.openrewrite.gradle.ChangeDependencyVersion:
+      dependencyPattern: org.springframework.integration:spring-integration-ftp
+      newVersion: 5.5.4
+  - org.openrewrite.gradle.ChangeDependencyArtifactId:
+      dependencyPattern: commons-lang:commons-lang
+      newArtifactId: commons-lang3
+  - org.openrewrite.gradle.ChangeDependencyGroupId:
+      dependencyPattern: commons-lang:commons-lang*
+      newGroupId: org.apache.commons
+  - org.openrewrite.gradle.ChangeDependencyVersion:
+      dependencyPattern: org.apache.commons:commons-lang3
+      newVersion: "3.1"
